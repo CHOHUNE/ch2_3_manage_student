@@ -26,23 +26,16 @@ public class StudentService {
 
     public void activateStudent(String name) {
 
-        Optional<Student> student = studentRepository.findByName(name);
-
-        student.ifPresent(student1 -> {
-            if (!student1.isActivate()) {
-                student1.setActivate(true);
-            }
-        });
+        Student student = getStudent(name);
+        student.activate();
 
     }
 
     public void deactivateStudent(String name) {
-      Optional<Student> student = studentRepository.findByName(name);
 
-      student.ifPresent( student1 -> {
-        if (student1.isActivate()) {
-          student1.setActivate(false);
-        }
-      });
+        Student student = getStudent(name);
+        student.deActivate();
+
     }
 }
+
