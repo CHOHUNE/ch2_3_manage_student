@@ -20,9 +20,14 @@ public class StudentInfoDto {
     return isActivate;
   }
 
-  public void setActivate(Boolean activate) {
-    isActivate = activate;
-  }
+//  public void setActivate(Boolean activate) {
+//    isActivate = activate;
+//  }
+// Entity -> DTO 를 변환하는 레이어 외에서는 Setter 사용을 가급적 지양해야 한다.
+//  코드의 가독성과 캡슐화를 매우 떨어뜨리기 때문
+
+  // setActivate 대신 activate 라는 함수를 작성해본다.
+
 
   public String getName() {
     return name;

@@ -18,8 +18,24 @@ public class Student {
     this.activated = true;
   }
 
-  public void setActivate(boolean activated) {
-    this.activated = activated;
+//  public void setActivate(boolean activated) {
+//    this.activated = activated;
+//  }
+// -> setter 지양
+
+  public void activate() {
+    if (this.activated) {
+      throw new IllegalArgumentException();
+    }
+    this.activated = true;
+  }
+
+  public void deActivate() {
+    if (!this.activated) {
+      throw new IllegalArgumentException();
+    }
+
+    this.activated = false;
   }
 
 
