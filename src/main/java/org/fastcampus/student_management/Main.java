@@ -1,7 +1,9 @@
 package org.fastcampus.student_management;
 
 import org.fastcampus.student_management.application.course.CourseService;
+import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
+import org.fastcampus.student_management.application.student.dto.StudentInfoDto;
 import org.fastcampus.student_management.repo.CourseRepository;
 import org.fastcampus.student_management.repo.StudentRepository;
 import org.fastcampus.student_management.ui.course.CourseController;
@@ -24,6 +26,18 @@ public class Main {
 
     CourseController courseController = new CourseController(coursePresenter, courseService, studentPresenter);
     StudentController studentController = new StudentController(studentPresenter, studentService);
+
+    StudentInfoDto mockup1 = new StudentInfoDto("대훈", 20, "서울");
+    StudentInfoDto mockup2 = new StudentInfoDto("도훈", 15, "부산");
+    studentService.saveStudent(mockup2);
+    studentService.saveStudent(mockup1);
+
+
+    CourseInfoDto courseInfoDto = new CourseInfoDto("Math", 20000, "MONDAY", "대훈", 1500L);
+    CourseInfoDto courseInfoDto2 = new CourseInfoDto("Math", 20000, "MONDAY", "도훈", 1500L);
+    courseService.registerCourse(courseInfoDto);
+    courseService.registerCourse(courseInfoDto2);
+
 
     studentPresenter.showMenu();
     UserInputType userInputType = studentController.getUserInput();
