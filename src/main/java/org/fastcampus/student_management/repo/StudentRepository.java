@@ -15,5 +15,12 @@ public class StudentRepository {
 
   public Optional<Student> findByName(String name) {
     return Optional.ofNullable(studentMap.get(name));
+
   }
+
+
+  public Student getStudent(String name) {
+    return findByName(name).orElseThrow(IllegalArgumentException::new);
+  }
+
 }
